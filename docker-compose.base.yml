@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    build: traefik
+    ports:
+      - "80:80"     # The HTTP port
+      - "443:443"   # HTTPS
+      - "4443:4443" # mTLS
+      - "8080:8080" # The Web UI (enabled by --api)
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock # So that Traefik can listen to the Docker events
+    networks:
+      - traefik
+
+networks:
+  traefik:

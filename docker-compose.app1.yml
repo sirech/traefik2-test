@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  whoami1:
+    image: emilevauge/whoami # A container that exposes an API to show its IP address
+    networks:
+      - traefik2-test_traefik
+    labels:
+      - "traefik.http.routers.web.entrypoints=web"
+      - "traefik.http.routers.web.rule=PathPrefix(`/findme`)"
+      - "traefik.http.services.web.loadBalancer.healthCheck.path=/"
+
+  whoami2:
+    image: emilevauge/whoami # A container that exposes an API to show its IP address
+    networks:
+      - traefik2-test_traefik
+    labels:
+      - "traefik.http.routers.web.entrypoints=web"
+      - "traefik.http.routers.web.rule=PathPrefix(`/findme`)"
+      - "traefik.http.services.web.loadBalancer.healthCheck.path=/"
+
+networks:
+  traefik2-test_traefik:
+    external: true

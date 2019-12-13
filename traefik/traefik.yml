@@ -4,3 +4,16 @@ log:
 api:
   insecure: true
   dashboard: true
+
+providers:
+  docker:
+    endpoint: unix:///var/run/docker.sock
+    exposedByDefault: true
+
+entrypoints:
+  web:
+    address: ":80"
+  tls:
+    address: ":443"
+  mTLS:
+    address: ":4443"

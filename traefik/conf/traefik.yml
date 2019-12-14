@@ -10,10 +10,15 @@ providers:
     endpoint: unix:///var/run/docker.sock
     exposedByDefault: true
 
+  file:
+    directory: /etc/traefik
+    watch: true
+
 entrypoints:
-  web:
+  http:
     address: ":80"
-  tls:
+  https:
     address: ":443"
   mTLS:
     address: ":4443"
+

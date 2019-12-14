@@ -6,7 +6,7 @@ services:
     networks:
       - traefik2-test_traefik
     labels:
-      - "traefik.http.routers.web.entrypoints=web"
+      - "traefik.http.routers.web.entrypoints=http"
       - "traefik.http.routers.web.rule=PathPrefix(`/findme`)"
       - "traefik.http.services.web.loadBalancer.healthCheck.path=/"
 
@@ -15,7 +15,7 @@ services:
     networks:
       - traefik2-test_traefik
     labels:
-      - "traefik.http.routers.web.entrypoints=web"
+      - "traefik.http.routers.web.entrypoints=http"
       - "traefik.http.routers.web.rule=PathPrefix(`/findme`)"
       - "traefik.http.services.web.loadBalancer.healthCheck.path=/"
 

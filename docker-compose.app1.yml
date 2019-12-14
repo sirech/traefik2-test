@@ -8,6 +8,8 @@ services:
     labels:
       - "traefik.http.routers.web.entrypoints=http"
       - "traefik.http.routers.web.rule=PathPrefix(`/findme`)"
+      - "traefik.http.routers.web.middlewares=add-foo"
+      - "traefik.http.middlewares.add-foo.addprefix.prefix=/foo"
       - "traefik.http.services.web.loadBalancer.healthCheck.path=/"
 
   whoami2:
@@ -17,6 +19,8 @@ services:
     labels:
       - "traefik.http.routers.web.entrypoints=http"
       - "traefik.http.routers.web.rule=PathPrefix(`/findme`)"
+      - "traefik.http.routers.web.middlewares=add-foo"
+      - "traefik.http.middlewares.add-foo.addprefix.prefix=/foo"
       - "traefik.http.services.web.loadBalancer.healthCheck.path=/"
 
 networks:

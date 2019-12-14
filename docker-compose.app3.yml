@@ -1,0 +1,16 @@
+version: '3'
+
+services:
+  tls:
+    image: hashicorp/http-echo
+    command: "--text withTLS"
+    networks:
+      - traefik2-test_traefik
+    labels:
+      - "traefik.http.routers.web-secure-mtls.entrypoints=mTLS"
+      - "traefik.http.routers.web-secure-mtls.tls.options=enforceClientCert@file"
+      - "traefik.http.routers.web-secure-mtls.rule=Host(`echo.testing.com`) && Path(`/tls`)"
+
+networks:
+  traefik2-test_traefik:
+    external: true

@@ -2,7 +2,6 @@ log:
   level: DEBUG
 
 api:
-  insecure: true
   dashboard: true
 
 providers:
@@ -21,4 +20,5 @@ entrypoints:
     address: ":443"
   mTLS:
     address: ":4443"
-
+  traefik:
+    address: ":8080"

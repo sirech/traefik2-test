@@ -14,6 +14,12 @@ services:
       - ./traefik/conf:/etc/traefik
     networks:
       - traefik
+    labels:
+      - "traefik.http.routers.dashboard.service=api@internal"
+      - "traefik.http.routers.dashboard.entrypoints=traefik"
+      - "traefik.http.routers.dashboard.rule=PathPrefix(`/api`) || PathPrefix(`/dashboard`)"
+      - "traefik.http.routers.dashboard.middlewares=auth"
+      - "traefik.http.middlewares.auth.basicauth.users=admin:$$apr1$$hD9OJEta$$TT7mPGXzdnkKXY/zfmFLm0"
 
 networks:
   traefik:

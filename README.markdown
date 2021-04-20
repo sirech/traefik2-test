@@ -11,10 +11,10 @@ This is intended to test [Traefik 2](https://traefik.io/) capabilities. It is a 
 
 ### Enable domain
 
-In order to test the echo app, you need to add this line in your `/etc/hosts` file:
+In order to test the echo app, you need to add the domain to the `/etc/hosts` file:
 
-```
-127.0.0.1 echo.testing.com
+```bash
+sudo sh -c "echo '127.0.0.1 echo.testing.com' >> /etc/hosts"
 ```
 
 Generate a self signed certificate for the url with:

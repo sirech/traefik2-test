@@ -2,7 +2,7 @@ version: '3'
 
 services:
   reverse-proxy:
-    image: traefik:2.1.1
+    image: traefik:2.4
     ports:
       - "80:80"     # The HTTP port
       - "443:443"   # HTTPS

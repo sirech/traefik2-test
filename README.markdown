@@ -42,7 +42,7 @@ docker-compose -f docker-compose.app3.yml up
 
 ## Access
 
-- The ui is available under `localhost:8080`
+- The ui is available under `localhost:8080/dashboard/`
 - The first app is reached through `localhost/findme`
 - The second app is reached through `https://echo.testing.com/standard`
 - The third app is reached through `https://echo.testing.com:4443/tls` and requires a client certificate. The certificate can be installed in `Postman` following [this guide](https://www.getpostman.com/docs/v6/postman/sending_api_requests/certificates)
